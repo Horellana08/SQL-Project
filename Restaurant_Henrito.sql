@@ -1,14 +1,17 @@
---Programado por: Henrito U20210307 --- Todos los derechos Reservados©  2022-2023
+--Programado por: Henry Orellana--- Todos los derechos ReservadosÂ©  2022-2023
 --Creacion de una base de datos
 --A tomar en cuenta: -  Crear tres tablas con sus respectivas llaves foraneas, - 5 campos  donde ingresar datos, - 3 registros,-procedimientos almacenados
+
+--Creamos nuestra base de datos
 CREATE DATABASE Restaurant
 GO
 
+--Usamos nuestra base de datos
 USE Restaurant
 GO 
 
 ---CREACION DE TABLAS
---Tabla Cliente
+--Tabla Cliente----
 CREATE TABLE tblClientes
 (
 idCliente INT NOT NULL PRIMARY KEY IDENTITY(1,1),
@@ -55,7 +58,7 @@ idPlato INT FOREIGN KEY REFERENCES tblPedido(idPedido)
 )
 GO
 ---SELECT-----
---Inserción de datos
+--InserciÃ³n de datos
 -------------------CLIENTES------------------------------
 INSERT INTO tblClientes(NombreCliente,ApellidoCliente,Telefono,Direccion)
 VALUES('Carlos','Orellana','60237580','col. pradera,san miguel')
@@ -77,12 +80,9 @@ INSERT INTO tblFactura(Pago,Fecha,Hora,idPlato)
 VALUES('12.50','08/11/2021','16:00',1)
 SELECT* FROM tblFactura
 -------------------------------------------------------------------
-
-
-
-
-
---PROCESOS ALMACENADOS
+-------------------------------------------------------------------
+--PROCESOS ALMACENADOS-------------
+-------------------------------------------------------------------
 ------------------------------------
 -----------CLIENTE----------------
 -----------CREATE------------------
@@ -119,6 +119,7 @@ END
 EXEC SP_READ_dc ',San Miguel'
 ------------------------------------
 -----------------UPDATE-------------
+-------------------------------------------------------------------
 CREATE PROC SP_Actualizar
 @idCliente AS INT,
 @NombreCliente AS VARCHAR(50),
@@ -140,6 +141,7 @@ EXEC SP_Actualizar 2,'Jose','Fuentes','72108017','cdad. Pacifica, San Miguel'
 SELECT* FROM tblClientes
 ------------------------------------
 -----------------DELETE--------
+-------------------------------------------------------------------
 CREATE PROC SP_DELETE_CLIENTE
 @idCliente AS INT
 AS
@@ -164,7 +166,9 @@ END
 
 EXEC SP_Meseros 'Henry','Orellana',2
 SELECT *FROM tblMeseros
+-------------------------------------------------------------------
 -----UPDATE-------
+-------------------------------------------------------------------
 CREATE PROC SP_Actualizar_Mesero
 @idMesero AS INT,
 @NombreMesero AS VARCHAR(50),
@@ -182,6 +186,7 @@ EXEC SP_Actualizar 2,'Stanley','Cisneros','64121830','barrio concepcion, San Mig
 SELECT* FROM tblMeseros
 ------------------------------------
 -----------------DELETE--------
+-------------------------------------------------------------------
 CREATE PROC SP_DELETE_Mesero
 @idMesero AS INT
 AS
@@ -192,8 +197,9 @@ END
 EXEC SP_DELETE_Mesero 3
 SELECT* FROM tblMeseros
 
-
+-------------------------------------------------------------------
 -----------------DROP----------
+-------------------------------------------------------------------
 --Eliminar base de datos
 DROP DATABASE Restaurant
 
@@ -201,9 +207,10 @@ DROP DATABASE Restaurant
 DROP TABLE tblClientes
 DROP TABLE tblMesa
 DROP TABLE tblMeseros
-
-
+-------------------------------------------------------------------
+-------------------------------------------------------------------
 --TRUNCATE
  TRUNCATE TABLE tblClientes
  TRUNCATE TABLE tblMesa
  TRUNCATE TABLE tblMeseros
+ -------------------------------------------------------------------
