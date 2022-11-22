@@ -1,9 +1,10 @@
--- Creación de la base de datos henrito--
---Esta base de datos trata de un reproductor de música --
+-- CreaciÃ³n de la base de datos--
+--Esta base de datos trata de un reproductor de mÃºsica --
 --Procedemos a crear nuestra base de datos
 create database Reproductor;
 GO
 
+--Usamos nuestra base de datos
 use Reproductor;
 Go
 
