@@ -1,0 +1,73 @@
+TABLAS 
+detalle_ventas
+-----------------
+idDetalleVenta int
+idVenta int
+idArticulo int
+cantidad  int
+precio  int
+descuento decimal(11,2)
+precio decimal(11,2)
+
+ingreso
+----------------
+idIngreso int
+idProveedor int
+idUsuario int
+tipo_comprobante varchar
+num_comprobante varchar
+fecha datetime
+impuesto decimal(4,2)
+total  decimal(11,2)
+estado varchar
+
+detalle_ingreso
+------------------
+idDetalle_ingreso int
+idIngreso int
+idArticulo int
+cantidad int
+precio decimal(11,2)
+
+categoria
+------------------
+idCategoria int
+nombre  varchar
+descripcion varchar
+estado bit
+
+
+roles
+---------------------
+idrol int
+nombre varchar
+descripcion varchar
+estado bit
+
+CAMPOS QUE AGREGAR 
+------------------------------
+BORRAR EL CAMPO PRODUCTO DE LA TABLA VENTAS Y 
+ASIGNARLA A DETALLE VENTA COMO FORANEA
+
+AGREGAR LOS SIGUIENTES CAMPOS A LA TABLA VENTAS
+tipo_comprobante varchar
+serie_comprobante varchar
+num_comprobante varchar
+impuesto decimal(4,2)
+estado varchar
+
+    1- ALTER TABLE nombre de la tabla ADD nombre_columna VARCHAR AFTER nombre_columna_anterior
+
+
+AGREGAR LOS SIGUIENTES CAMPOS A LA TABLA PRODUCTOS
+idCategoria =>FORANEA
+stock int
+descripcion varchar
+estado bit
+
+
+AGREGAR LOS SIGUIENTES CAMPOS A LA TABLA CLIENTE
+tipo_documento varchar
+num_documento varchar
+telefono varchar
+email varchar
